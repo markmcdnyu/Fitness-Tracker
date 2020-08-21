@@ -73,6 +73,15 @@ app.put("api/workouts/:id", async (req, res) => {
 
 
 // create a new workout 
+app.post("api/workouts", async ({ body }, res) => {
+    try {
+        let data = await db.Workout.create(body)
+        console.log({ data });
+        res.json(data);
+    } catch ({ message }) {
+        res.json(message);
+    }
+});
 
 // get a number of workouts from the past
 
