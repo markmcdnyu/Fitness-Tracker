@@ -48,6 +48,33 @@ app.get('/stats', (req, res) => {
 
 
 // API routes here
+// get all the workouts
+app.get("/api/workouts", (req, res) => {
+    db.Workout.find({})
+        .then((response) => {
+            res.json(response);
+        })
+        .catch((err) => {
+            res.json(err.message);
+        });
+});
+
+// update a specific workout
+app.put("api/workouts/:id", async (req, res) => {
+    db.Workout.update(
+        { _id: mongoose.Types.ObjectId(req.params.id) },
+        { $push: { exercises: req.body } },
+        { new: true }
+    )
+        .then((data) => res.json(data))
+        .catch((err) => res.json(err));
+
+});
+
+
+// create a new workout 
+
+// get a number of workouts from the past
 
 
 
