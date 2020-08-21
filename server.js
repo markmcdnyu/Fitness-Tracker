@@ -23,11 +23,13 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// route for the public folder here
+app.use(express.static("public"));
 
+//Need the mongoose workout db (and needed for deployment)
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
-
-
-
+// ROUTES will go here
 
 
 app.listen(PORT, () => {
