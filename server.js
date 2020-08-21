@@ -29,7 +29,24 @@ app.use(express.static("public"));
 //Need the mongoose workout db (and needed for deployment)
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
-// ROUTES will go here
+// HTML ROUTES will go here
+
+//index/html page here
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "./public/index.html"))
+});
+
+//exercise page
+app.get('/exercise', (req, res) => {
+    res.sendFile(path.join(__dirname, "./public/exercise.html"))
+});
+
+//stats page
+
+
+// API routes here
+
+
 
 
 app.listen(PORT, () => {
