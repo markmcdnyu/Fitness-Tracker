@@ -22,10 +22,15 @@ const ExerciseSchema = new Schema({
 
 const WorkoutSchema = new Schema({
     // need day
-
-    //need type of date
-
-    //use date.now
+    day: {
+        //need type of date
+        type: Date,
+        //use date.now
+        default: Date.now,
+    },
+    // add in the exercies and include the ExerciseSchema from above, 
+    //then we will just need to include the WorkoutSchema and export it 
+    exercises: [ExerciseSchema]
 
 });
 
