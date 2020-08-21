@@ -84,7 +84,14 @@ app.post("api/workouts", async ({ body }, res) => {
 });
 
 // get a number of workouts from the past
-
+app.get("/api/workouts/range", async (req, res) => {
+    try {
+        let data = await db.Workout.find({}).sort({ day: -1 }).limit(7)
+        res.json(data);
+    } catch {
+        res.json(error);
+    }
+});
 
 
 
