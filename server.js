@@ -42,6 +42,9 @@ app.get('/exercise', (req, res) => {
 });
 
 //stats page
+app.get('/stats', (req, res) => {
+    res.sendFile(path.join(__dirname, "./public/stats.html"))
+});
 
 
 // API routes here
