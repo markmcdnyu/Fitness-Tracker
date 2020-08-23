@@ -2,35 +2,20 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const ExerciseSchema = new Schema({
-    //need type
-    type: String,
-    //need name
-    name: String,
-    //need duration
-    duration: Number,
-    //need distance
-    distance: Number,
-    //need weight
-    weight: Number,
-    //need reps
-    reps: Number,
-    //need sets
-    sets: Number,
-});
-
 
 const WorkoutSchema = new Schema({
     // need day
     day: {
         //need type of date
-        type: Date,
-        //use date.now
-        default: Date.now,
+        type: Date
     },
     // add in the exercies and include the ExerciseSchema from above, 
     //then we will just need to include the WorkoutSchema and export it 
-    exercises: [ExerciseSchema]
+    exercises: [{
+        type: Schema.Types.ObjectId,
+        ref: "Exercise",
+    },
+    ],
 
 });
 
