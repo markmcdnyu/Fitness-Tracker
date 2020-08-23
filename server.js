@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Need the mongoose workout db (and needed for deployment)
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user1:password1@ds351455.mlab.com:51455/heroku_8nzjc6hn", { useNewUrlParser: true });
 
 // HTML ROUTES will go here
 
